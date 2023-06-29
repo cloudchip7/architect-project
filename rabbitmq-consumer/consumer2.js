@@ -25,14 +25,14 @@ amqp.connect('amqp://localhost', function(error0, connection) {
       // console.log(" [*] Waiting for messages in %s. To exit press CTRL+C", q.queue);
       // channel.bindQueue(q.queue, exchange, '');
 
-      channel.consume(q.queue, function(msg) {
-        const item = JSON.parse(msg.content.toString());
+      // channel.consume(q.queue, function(msg) {
+      //   const item = JSON.parse(msg.content.toString());
 
-        if(item.reset == true) { 
-            count = 0;
-            console.log(`reset` );
-            return;
-        }
+      //   if(item.reset == true) { 
+      //       count = 0;
+      //       console.log(`reset` );
+      //       return;
+      //   }
         // console.log(`Recv ${item.id}`);
         if(item.id == count) { 
             count++;
