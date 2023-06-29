@@ -1,4 +1,5 @@
 var amqp = require('amqplib/callback_api');
+var amqp = require('amqplib/callback_api');
 
 amqp.connect('amqp://localhost', function(error0, connection) {
   if (error0) {
@@ -10,9 +11,9 @@ amqp.connect('amqp://localhost', function(error0, connection) {
     }
     var exchange = 'logs';
  
-    channel.assertExchange(exchange, 'fanout', {
-      durable: false
-    });
+    // channel.assertExchange(exchange, 'fanout', {
+    //   durable: false
+    // });
     
     let msg = { id: 0, reset: true };
     channel.publish(exchange, '', Buffer.from(JSON.stringify(msg)));
